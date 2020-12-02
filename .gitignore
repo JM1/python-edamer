@@ -1,0 +1,13 @@
+# Ignore KDevelop 4 project files
+*.kdev4
+.kdev4/
+
+# Ignore generated files
+build/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+!.gitignore

@@ -1,0 +1,7 @@
+; (2020) Jakob Meng
+; kate: syntax INI Files; tab-indents on; replace-tabs off;
+
+[flake8]
+#extend_ignore = E402
+#select = E,F,W
+max_line_length = 120

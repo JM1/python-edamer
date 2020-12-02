@@ -1,0 +1,63 @@
+/* Copyright (c) 2020 Jakob Meng, <jakobmeng@web.de>
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef EDAMER_CONFIG_HPP
+#define EDAMER_CONFIG_HPP
+
+#define EDAMER_COPYRIGHT "Copyright (c) 2020 Jakob Meng, <jakobmeng@web.de>"
+
+#define EDAMER_CONFIG_VERSION(version, revision, patch) \
+    (((version) << 24) + ((revision) << 16) + (patch))
+
+#define EDAMER_VERSION_MAJOR @edamer_VERSION_MAJOR@
+#define EDAMER_VERSION_MINOR @edamer_VERSION_MINOR@
+#define EDAMER_VERSION_PATCH @edamer_VERSION_PATCH@
+#define EDAMER_VERSION_STRING "@edamer_VERSION@"
+
+#define EDAMER_VERSION                            \
+    EDAMER_CONFIG_VERSION(EDAMER_VERSION_MAJOR, \
+                            EDAMER_VERSION_MINOR, \
+                            EDAMER_VERSION_PATCH) \
+
+#include <edamer/export.hpp>
+#define EDAMER_API EDAMER_EXPORT
+
+#cmakedefine EDAMER_ENABLE_SCALAR_INT
+#cmakedefine EDAMER_ENABLE_SCALAR_FLOAT
+#cmakedefine EDAMER_ENABLE_SCALAR_DOUBLE
+#cmakedefine EDAMER_ENABLE_SCALAR_COMPLEX_FLOAT
+#cmakedefine EDAMER_ENABLE_SCALAR_COMPLEX_DOUBLE
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_CIRC_CIRC
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_MC_MR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_MC_STAR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_MD_STAR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_MR_MC
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_MR_STAR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_MC
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_MD
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_MR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_STAR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_VC
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_STAR_VR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_VC_STAR
+#cmakedefine EDAMER_ENABLE_MATRIX_DISTRIBUTION_VR_STAR
+
+#define EDAMER_NAMESPACE_BEGIN(name) namespace name {
+#define EDAMER_NAMESPACE_END(name) /* namespace name */ }
+
+#define EDAMER_NAMESPACE edamer
+
+#endif // !EDAMER_CONFIG_HPP
