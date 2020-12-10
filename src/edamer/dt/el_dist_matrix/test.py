@@ -126,4 +126,8 @@ def test_copy_redist(env):
         lcl_circ_circ_np = lcl_circ_circ_el.view_to_numpy()
 
         if env.rank == 0:
+            # If this assertion fails due to zeros in the upper matrix indices, then you may try
+            # to use a different MPI point-to-point management layer, e.g. ob1 instead of ucx.
+            # To do so, set and export the OMPI_MCA_pml variable before executing the unit tests:
+            #  export OMPI_MCA_pml=ob1
             assert np.array_equal(lcl_star_star_np, lcl_circ_circ_np)
