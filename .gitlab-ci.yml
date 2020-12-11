@@ -125,20 +125,20 @@ default:
     - export PYTHONPATH="$INSTALL_PREFIX/lib/python3/dist-packages"
     - python3 -c "from edamer import detail, dt, fn; print('All systems go')"
 
-.matrix-gcc7-clang7: &matrix-gcc7-clang7
+.matrix-gcc8-clang7: &matrix-gcc8-clang7
   parallel:
     matrix:
-      - CC: gcc-7
-        CXX: g++-7
+      - CC: gcc-8
+        CXX: g++-8
         BUILD_TYPE: Debug
-      - CC: gcc-7
-        CXX: g++-7
+      - CC: gcc-8
+        CXX: g++-8
         BUILD_TYPE: MinSizeRel
-      - CC: gcc-7
-        CXX: g++-7
+      - CC: gcc-8
+        CXX: g++-8
         BUILD_TYPE: RelWithDebInfo
-      - CC: gcc-7
-        CXX: g++-7
+      - CC: gcc-8
+        CXX: g++-8
         BUILD_TYPE: Release
       - CC: clang-7
         CXX: clang++-7
@@ -153,14 +153,14 @@ build-linux-debian-buster:
   image: jm1337/debian-dev-hbrs:buster
   cache:
     key: "linux-debian-buster"
-  <<: *matrix-gcc7-clang7
+  <<: *matrix-gcc8-clang7
 
 test-linux-debian-buster:
   extends: .test-linux
   stage: test
   image: jm1337/debian-dev-hbrs:buster
   cache: {}
-  <<: *matrix-gcc7-clang7
+  <<: *matrix-gcc8-clang7
   needs:
     - build-linux-debian-buster
   dependencies:
