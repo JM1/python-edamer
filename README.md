@@ -93,7 +93,7 @@ The functionality for the Python and C++ interop is heavily based on [`pybind11`
 ## How to build, install and run code using `Docker` or `Podman`
 
 For a quick and easy start into developing with Python and C++, a set of ready-to-use `Docker`/`Podman` images
-`jm1337/debian-dev-hbrs` and `jm1337/debian-dev-full` (supports more languages) have been created. They contain a full
+`jm1337/debian-dev-hbrs` and `jm1337/debian-dev-full` (supports more languages) has been created. They contain a full
 development system including all tools and libraries necessary to hack on distributed decomposition algorithms and more
 ([Docker Hub][docker-hub-jm1337], [source files for Docker images][docker-artifacts]).
 
@@ -105,7 +105,7 @@ Sidenote:
 
 ### Install `Docker` or `Podman`
 
-* On `Debian 10 (Buster)` just run `sudo apt install docker.io`
+* On `Debian 10 (Buster)` or `Debian 11 (Bullseye)` just run `sudo apt install docker.io`
   or follow the [official install guide][docker-install-debian] for Docker Engine on Debian
 * On `Ubuntu 18.04 LTS (Bionic Beaver)` and `Ubuntu 20.04 LTS (Focal Fossa)` just run `sudo apt install docker.io`
   (from `bionic/universe` and `focal/universe` repositories)
