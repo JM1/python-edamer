@@ -162,9 +162,8 @@ test-linux-debian-buster:
   cache: {}
   <<: *matrix-gcc8-clang7
   needs:
-    - build-linux-debian-buster
-  dependencies:
-    - build-linux-debian-buster
+    - job: build-linux-debian-buster
+      artifacts: true
 
 .matrix-gcc10-clang10: &matrix-gcc10-clang10
   parallel:
@@ -203,6 +202,5 @@ test-linux-debian-bullseye:
   cache: {}
   <<: *matrix-gcc10-clang10
   needs:
-    - build-linux-debian-bullseye
-  dependencies:
-    - build-linux-debian-bullseye
+    - job: build-linux-debian-bullseye
+      artifacts: true
