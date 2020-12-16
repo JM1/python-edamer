@@ -31,6 +31,20 @@ default:
     - cmake --version
     - ctest --version
     - ccache -s
+    # Symbol visibility is set to default because Boost.Test 1.67
+    # from Debian 10 (Buster) has issues with hidden symbols
+    # Ref.: https://github.com/boostorg/test/issues/199
+    - >
+      export BOOST_VERSION="$(grep -F '#define BOOST_VERSION ' /usr/include/boost/version.hpp | awk '{ print $3; }')";
+      echo "BOOST_VERSION: $BOOST_VERSION";
+      if [ "$BOOST_VERSION" = "106700" ]; then
+          CMAKE_VISIBILITY_OPTIONS=\
+      '     -DCMAKE_CXX_VISIBILITY_PRESET=default'\
+      '     -DCMAKE_C_VISIBILITY_PRESET=default  '\
+      '     -DCMAKE_VISIBILITY_INLINES_HIDDEN=OFF' ;
+      else
+          CMAKE_VISIBILITY_OPTIONS= ;
+      fi
     # Build hbrs-cmake
     - mkdir -p "$INSTALL_PREFIX/src" && cd "$INSTALL_PREFIX/src"
     - >
@@ -73,6 +87,7 @@ default:
         -DHBRS_MPL_ENABLE_BENCHMARKS=OFF \
         -DHBRS_MPL_ENABLE_ELEMENTAL=ON \
         -DHBRS_MPL_ENABLE_MATLAB=OFF \
+        $CMAKE_VISIBILITY_OPTIONS \
         ..
     - make "-j$(nproc)"
     - make install
@@ -108,6 +123,7 @@ default:
         -DEDAMER_ENABLE_MATRIX_DISTRIBUTION_VC_STAR=ON \
         -DEDAMER_ENABLE_MATRIX_DISTRIBUTION_VR_STAR=ON \
         -DEDAMER_ENABLE_TESTS=ON \
+        $CMAKE_VISIBILITY_OPTIONS \
         .. || { cat CMakeFiles/CMakeError.log; exit 255; };
     - make "-j$(nproc)"
     - ccache -s
