@@ -277,7 +277,7 @@ Reason for this error is still unknown. Till now, it only occurs sporadically an
 
 ## License
 
-GNU General Public License v3.0 or later
+GNU Lesser General Public License v3.0 or later
 
 See [LICENCE.md](LICENSE.md) to see the full text.
 
