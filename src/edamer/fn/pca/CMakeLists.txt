@@ -8,15 +8,10 @@
 
 #################### build ####################
 
-target_sources(py3 PRIVATE
-    __init__.py)
+target_sources(cpp PRIVATE
+    impl.cpp)
 
 #################### list the subdirectories ####################
 
-add_subdirectory(expand)
-add_subdirectory(multiply)
-add_subdirectory(pca)
-add_subdirectory(plus)
-add_subdirectory(select)
-add_subdirectory(size)
-add_subdirectory(transpose)
+add_subdirectory(impl)
+add_subdirectory(test)

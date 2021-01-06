@@ -6,17 +6,6 @@
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 
-#################### build ####################
+#################### tests ####################
 
-target_sources(py3 PRIVATE
-    __init__.py)
-
-#################### list the subdirectories ####################
-
-add_subdirectory(expand)
-add_subdirectory(multiply)
-add_subdirectory(pca)
-add_subdirectory(plus)
-add_subdirectory(select)
-add_subdirectory(size)
-add_subdirectory(transpose)
+edamer_add_pytest(fn_pca_elemental "elemental.py")

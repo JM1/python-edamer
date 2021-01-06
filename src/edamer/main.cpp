@@ -37,6 +37,12 @@
 #include <edamer/dt/pca_control.hpp>
 #include <edamer/dt/pca_result.hpp>
 #include <edamer/dt/range.hpp>
+#include <edamer/fn/expand.hpp>
+#include <edamer/fn/multiply.hpp>
+#include <edamer/fn/pca.hpp>
+#include <edamer/fn/plus.hpp>
+#include <edamer/fn/select.hpp>
+#include <edamer/fn/size.hpp>
 #include <edamer/fn/transpose.hpp>
 #include <hbrs/mpl/detail/environment.hpp>
 
@@ -85,6 +91,12 @@ PYBIND11_MODULE(cpp, m) {
 				EDAMER_DT_PCA_RESULT_PYDEFS /*, ...*/
 			))),
 			hana::pair(m_fn, hana::flatten(hana::make_tuple(
+				EDAMER_FN_EXPAND_PYDEFS,
+				EDAMER_FN_MULTIPLY_PYDEFS,
+				EDAMER_FN_PCA_PYDEFS,
+				EDAMER_FN_PLUS_PYDEFS,
+				EDAMER_FN_SELECT_PYDEFS,
+				EDAMER_FN_SIZE_PYDEFS,
 				EDAMER_FN_TRANSPOSE_PYDEFS /*, ...*/
 			)))
 		),
