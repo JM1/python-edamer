@@ -92,7 +92,6 @@ pydef_expression(
 	 *       }
 	 *   );
 	 */
-
 	
 	auto name = boost::format("expression<%s,%s>") % operation_n % operands_n;
 	using type_t = mpl::expression<operation_t, operands_t>;
@@ -101,8 +100,12 @@ pydef_expression(
 		// C++ type registered already
 		return base;
 	}
-	
-	auto c = py::class_<type_t>{m_dt, pystrip(name.str()).c_str(), py_expression}
+	/* TODO: Investigate why Python fails to 'import edamer.cpp' with error message "ImportError: UnicodeDecodeError:
+	 * 'utf-8' codec can't decode byte 0xb0 in position 0: invalid start byte" if CMAKE_BUILD_TYPE=Release and class 'c'
+	 * inherits from py_expression. This error occurs both with GCC10 and Clang10 and might have to do with pybind11 and
+	 * Link Time Optimization (LTO).
+	 */
+	auto c = py::class_<type_t>{m_dt, pystrip(name.str()).c_str()/*, py_expression*/}
 		.def(
 			py::init(
 				[](operation_t o, operands_t os) -> type_t {
