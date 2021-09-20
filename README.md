@@ -22,6 +22,12 @@ This code is still under development and is not ready for production yet.
 Code might change or break at any time and is missing proper documentation.
 :warning:
 
+:warning: **DEPRECATION NOTICE:**
+Apparently, this code meets the inevitable fate of many state-funded research projects. It has not been actively worked
+on since early 2021. **Software consists of teams of people. If you want people to continue developing a project after
+it ceases to be their personal interest, fund them for it.**
+:warning:
+
 ## Example: Distributed PCA in 12 lines of Python code
 
 ```Python
